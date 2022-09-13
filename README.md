@@ -1,4 +1,4 @@
-# terraform-rego
+# terraform-conftest
 
 An example repo for demonstrating an end-to-end Terraform module build & deploy workflow. 
 
