@@ -1,16 +1,16 @@
-module github.com/cvittoria/rego-terraform/terraform/modules/vpc_data
+module github.com/cvittoria/terraform-conftest/terraform/modules/vpc_data
 
 go 1.18
 
 require (
 	github.com/aws/aws-sdk-go v1.40.56
-	github.com/cvittoria/rego-terraform/terraform/terratest v0.0.0-00010101000000-000000000000
+	github.com/cvittoria/terraform-conftest/terraform/terratest v0.0.0-00010101000000-000000000000
 	github.com/gruntwork-io/terratest v0.40.7
 	github.com/stretchr/testify v1.7.1
 	github.com/tidwall/gjson v1.14.1
 )
 
-replace github.com/cvittoria/rego-terraform/terraform/terratest => ../../terratest
+replace github.com/cvittoria/terraform-conftest/terraform/terratest => ../../terratest
 
 require (
 	cloud.google.com/go v0.83.0 // indirect

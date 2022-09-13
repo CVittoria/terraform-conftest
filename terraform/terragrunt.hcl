@@ -22,7 +22,7 @@ generate "provider" {
       allowed_account_ids = ["${local.aws_account_id}"]
       assume_role {
         role_arn     = "${local.aws_assume_role}"
-        session_name = "rego-terraform_sesh"
+        session_name = "terraform-conftest_sesh"
       }
     }
   EOF

@@ -16,11 +16,11 @@ clean = rm -rf $(1).terragrunt-cache/ && rm -f $(1).terraform.lock.hcl
 go-mod-tidy = go mod tidy
 
 docker.build:
-	docker build -t rego-terraform:latest .
+	docker build -t terraform-conftest:latest .
 
 .SILENT: docker.run
 docker.run: docker.build
-	docker run $(ARGS) -v $(pwd)/.git:/root/.git:ro -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} rego-terraform:latest $(COMMAND)
+	docker run $(ARGS) -v $(pwd)/.git:/root/.git:ro -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} terraform-conftest:latest $(COMMAND)
 
 terraform-docs:
 	$(call workspace-setup,terraform) && \

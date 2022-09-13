@@ -1,4 +1,4 @@
-module github.com/cvittoria/rego-terraform/terraform/terratest
+module github.com/cvittoria/terraform-conftest/terraform/terratest
 
 go 1.18
 
