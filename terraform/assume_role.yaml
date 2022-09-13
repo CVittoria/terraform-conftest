@@ -1,0 +1,2 @@
+aws_assume_role: "<YOUR_ROLE>"
+aws_account_id: "<YOUR_ACCOUNT_ID>"

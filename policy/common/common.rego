@@ -1,5 +1,7 @@
 package common
 
+import future.keywords.if
+
 # all resources being changed in the plan
 resources = all {
 	all := [name |
@@ -34,4 +36,16 @@ filter_resources(resource_type) = filtered {
 # filter created resources by type
 filtered_created_resources(resource_type) = created {
 	created := created_resources(filter_resources(resource_type))
+}
+
+# Use test_msg to conditionally display a message.
+# Used for UX when a policy set may or may not be evaluated due to a condition.
+# condition is a bool
+# skip_msg is a string printed when "condition" is false
+# continue_msg is a string printed when "condition" is true
+test_msg(condition, skip_msg, continue_msg) if {
+	condition
+	print(continue_msg)
+} else {
+	print(skip_msg)
 }

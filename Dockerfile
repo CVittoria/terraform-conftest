@@ -12,7 +12,10 @@ WORKDIR /
 
 RUN apk add --no-cache \
         bash \
-        make
+        make \
+        jq \
+        git \
+        build-base
 
 # Install terraform & terragrunt
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
@@ -43,6 +46,8 @@ COPY policy/ /root/policy/
 COPY scripts/ /root/scripts/
 COPY terraform/ /root/terraform/
 COPY Makefile /root/
+
+RUN git config --global --add safe.directory /root
 
 WORKDIR /root
 

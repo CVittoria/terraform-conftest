@@ -1,7 +1,10 @@
 {
 	"name": "DevEnv",
 
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "build": {
+        "context": "..",
+        "dockerfile": "../Dockerfile.dev"
+    },
 
 	"features": {
         "ghcr.io/devcontainers/features/go:1": {
@@ -16,8 +19,18 @@
         },
 		"ghcr.io/devcontainers/features/docker-from-docker:1": {
             "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/aws-cli:1": {
+            "version": "latest"
         }
 	},
 
-	"postCreateCommand": "bash .devcontainer/init.sh"
+	"postCreateCommand": "bash .devcontainer/init.sh",
+
+    "containerEnv": {
+        "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}"
+    },
+
+    "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ]
 }

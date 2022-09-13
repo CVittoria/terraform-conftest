@@ -1,6 +1,7 @@
 package main
 
 import data.common.resources_exist
+import data.common.test_msg
 import future.keywords.if
 
 #every resource might need these tags
@@ -34,5 +35,6 @@ test[msg] {
 }
 
 deny[msg] {
+	test_msg(resources_exist, "No resources in module - skipping tag check.", "Resources found - checking tags")
 	msg := tests[_]
 }
