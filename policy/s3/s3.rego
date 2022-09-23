@@ -1,8 +1,8 @@
-package main
+package s3
 
 import data.common.filter_resources
 import data.common.filtered_created_resources
-import data.common.test_msg
+import data.common.print_msg
 
 import future.keywords.if
 
@@ -32,6 +32,6 @@ test[msg] {
 }
 
 deny[msg] {
-	test_msg(buckets_exist, "No aws_s3_bucket in plan - skipping bucket check.", "aws_s3_bucket found in plan - checking s3 policies.")
+	print_msg(buckets_exist, "No aws_s3_bucket in plan - skipping bucket check.", "aws_s3_bucket found in plan - checking s3 policies.")
 	msg := tests[_]
 }

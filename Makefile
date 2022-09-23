@@ -51,3 +51,7 @@ s3_bucket.terratest:
 	$(call go-mod-tidy) && \
 	go test -v . ; \
 	$(call clean,**/)
+
+opa.test:
+	$(call workspace-setup,policy) && \
+	opa test -v .

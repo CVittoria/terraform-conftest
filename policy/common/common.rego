@@ -43,7 +43,7 @@ filtered_created_resources(resource_type) = created if {
 # condition is a bool
 # skip_msg is a string printed when "condition" is false
 # continue_msg is a string printed when "condition" is true
-test_msg(condition, skip_msg, continue_msg) if {
+print_msg(condition, skip_msg, continue_msg) if {
 	condition
 	print(continue_msg)
 } else {
